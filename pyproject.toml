@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cortexmark"
-version = "0.3.5a1"
+version = "0.3.5a2"
 description = "Convert PDF documents to structured Markdown with a multi-stage pipeline."
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.15"
 authors = [
     { name = "Mehmet İşcan" },
 ]
@@ -23,7 +23,7 @@ classifiers = [
     "Topic :: Text Processing :: Markup :: Markdown",
 ]
 dependencies = [
-    "markitdown[pdf]>=0.1.5",
+    "markitdown[pdf]>=0.1.8",
     "PyYAML>=6.0.3",
 ]
 
@@ -40,19 +40,22 @@ docling = [
 gpu = [
     "docling>=2.86.0",
 ]
-# On Python >=3.13, users may instead install the newer "rapidocr>=3.3,<4";
-# CortexMark imports either supported RapidOCR package.
+# The legacy distribution excludes Python 3.13; modern RapidOCR needs an explicit backend.
 ocr = [
-    "rapidocr-onnxruntime>=1.4",
+    "rapidocr-onnxruntime>=1.4; python_version < '3.13'",
+    "rapidocr>=3.3,<4; python_version >= '3.13'",
+    "onnxruntime>=1.20.1; python_version >= '3.13'",
 ]
 dev = [
     "docling>=2.86.0",
-    "rapidocr-onnxruntime>=1.4",
+    "rapidocr-onnxruntime>=1.4; python_version < '3.13'",
+    "rapidocr>=3.3,<4; python_version >= '3.13'",
+    "onnxruntime>=1.20.1; python_version >= '3.13'",
     "build>=1.2",
     "twine>=5.1",
     "pytest>=9.0",
     "pytest-cov>=6.0",
-    "ruff==0.15.22",
+    "ruff==0.17.0",
     "pyright>=1.1",
     "pre-commit>=4.0",
 ]
@@ -88,7 +91,7 @@ addopts = "--cov=cortexmark --cov-report=term-missing --cov-fail-under=70"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.3.5a1"
+version = "0.3.5a2"
 version_files = [
     "pyproject.toml:version",
 ]

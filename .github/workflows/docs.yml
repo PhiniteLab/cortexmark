@@ -20,9 +20,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -32,10 +32,11 @@ jobs:
       - name: Build site
         run: mkdocs build --strict
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         if: github.event_name == 'workflow_dispatch' && inputs.deploy
         with:
           path: site/
+          include-hidden-files: true
 
   deploy:
     if: github.event_name == 'workflow_dispatch' && inputs.deploy
@@ -52,4 +53,4 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
