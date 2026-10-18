@@ -1,0 +1,11 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "include": ["cortexmark"],
+  "typeCheckingMode": "standard",
+  "reportMissingTypeStubs": false,
+  "reportMissingParameterType": "warning",
+  "reportUnnecessaryIsInstance": "warning",
+  "reportUnnecessaryTypeIgnoreComment": "warning",
+  "pythonVersion": "3.12"
+}

@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cortexmark"
+version = "0.3.5a1"
+description = "Convert PDF documents to structured Markdown with a multi-stage pipeline."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "Mehmet İşcan" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
+dependencies = [
+    "markitdown[pdf]>=0.1.5",
+    "PyYAML>=6.0.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/PhiniteLab/cortexmark"
+Documentation = "https://github.com/PhiniteLab/cortexmark/tree/main/docs"
+Repository = "https://github.com/PhiniteLab/cortexmark"
+Issues = "https://github.com/PhiniteLab/cortexmark/issues"
+
+[project.optional-dependencies]
+docling = [
+    "docling>=2.86.0",
+]
+gpu = [
+    "docling>=2.86.0",
+]
+# On Python >=3.13, users may instead install the newer "rapidocr>=3.3,<4";
+# CortexMark imports either supported RapidOCR package.
+ocr = [
+    "rapidocr-onnxruntime>=1.4",
+]
+dev = [
+    "docling>=2.86.0",
+    "rapidocr-onnxruntime>=1.4",
+    "build>=1.2",
+    "twine>=5.1",
+    "pytest>=9.0",
+    "pytest-cov>=6.0",
+    "ruff==0.15.22",
+    "pyright>=1.1",
+    "pre-commit>=4.0",
+]
+docs = [
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.27",
+]
+
+[project.scripts]
+cortexmark = "cortexmark.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cortexmark*"]
+
+[tool.setuptools.package-data]
+cortexmark = ["py.typed"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501", "RUF001"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["cortexmark"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=cortexmark --cov-report=term-missing --cov-fail-under=70"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.3.5a1"
+version_files = [
+    "pyproject.toml:version",
+]
+tag_format = "v$version"
+update_changelog_on_bump = true
+changelog_file = "CHANGELOG.md"

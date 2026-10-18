@@ -1,0 +1,79 @@
+# Python bytecode, packaging, and native extensions
+__pycache__/
+*.py[codz]
+*$py.class
+*.so
+.Python
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+.installed.cfg
+
+# Test, lint, type-check, and documentation artifacts
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.pytype/
+.pyre/
+.hypothesis/
+.tox/
+.nox/
+.cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+site/
+docs/_build/
+
+# Local environments and credentials
+.env
+.env.*
+!.env.example
+.envrc
+.venv
+.venv-*/
+venv/
+venv-*/
+env/
+ENV/
+env.bak/
+venv.bak/
+.pdm-python
+.pdm-build/
+.pixi/
+__pypackages__/
+.pypirc
+
+# Local editor, notebook, and temporary artifacts
+.ipynb_checkpoints/
+.spyderproject
+.spyproject
+.ropeproject/
+.DS_Store
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+*.bak
+*.log
+
+# Student inputs, working notes, sessions, and generated results
+# Every file type is private; PDF-only rules do not protect notes or metadata.
+/sessions/
+/workspace/
+/data/raw/
+/data/processed/
+outputs/
+cortexmark-output/
+/LITERATURE-EXAMPLE/
+*.pdf
+*.PDF
+
+# Local task records and archives
+/tasks/
+/tasks-archive/

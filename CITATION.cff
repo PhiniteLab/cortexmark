@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use CortexMark in your research, please cite this software."
+type: software
+title: CortexMark
+authors:
+  - family-names: İşcan
+    given-names: Mehmet
+version: 0.3.5a1
+date-released: 2026-10-18
+license: MIT
+repository-code: https://github.com/PhiniteLab/cortexmark
+url: https://github.com/PhiniteLab/cortexmark

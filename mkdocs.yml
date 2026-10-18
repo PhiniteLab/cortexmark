@@ -1,0 +1,77 @@
+site_name: CortexMark
+site_description: Convert PDFs into local, page-aware Markdown bundles.
+site_author: Mehmet İşcan
+repo_url: https://github.com/PhiniteLab/cortexmark
+repo_name: PhiniteLab/cortexmark
+
+copyright: Copyright &copy; 2026 Mehmet İşcan
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Quick Start: getting-started/quickstart.md
+      - Installation: getting-started/installation.md
+  - User Guide:
+      - Requirements, Inputs, and Outputs: guide/inputs-and-outputs.md
+      - Configuration: guide/configuration.md
+      - Legacy Pipeline Stages: guide/pipeline-stages.md
+  - Architecture:
+      - Overview: architecture/overview.md
+  - API Reference:
+      - Modules: api/modules.md
+  - Contributing: contributing.md
+  - Known Issues: known-issues.md
+  - Changelog: changelog.md

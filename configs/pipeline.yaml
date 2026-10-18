@@ -1,0 +1,55 @@
+# ─────────────────────────────────────────────
+# Pipeline configuration
+# ─────────────────────────────────────────────
+
+source_id: default
+
+# Relative paths are anchored at this configuration file.
+paths:
+  data_raw: ../data/raw
+  output_raw_md: ../outputs/raw_md
+  output_cleaned_md: ../outputs/cleaned_md
+  output_chunks: ../outputs/chunks
+  output_quality: ../outputs/quality
+  output_semantic_chunks: ../outputs/semantic_chunks
+
+convert:
+  # Primary engine: docling | markitdown | dual
+  # dual = run both and merge (docling structure + markitdown gap-fill)
+  engine: dual
+  docling:
+    # auto = use GPU (cuda) if available, otherwise CPU
+    device: auto
+    num_threads: 1
+    do_ocr: false
+    do_table_structure: true
+    table_structure_mode: accurate   # accurate | fast
+    do_formula_enrichment: false   # opt-in: ~8x slower on CPU (unicode->LaTeX)
+    do_code_enrichment: false
+  markitdown:
+    # markitdown is used as supplementary text recovery
+    enabled: true
+
+clean:
+  min_repeated_header_count: 3
+  max_repeated_header_length: 80
+
+chunk:
+  # Headings at these levels trigger new chunks
+  split_levels: [1, 2]
+
+render_templates:
+  outline_file: 00_meta/outline.md
+  language: en
+  max_summary_chars: 240
+  max_scope_items: 6
+  max_tasks: 5
+
+logging:
+  level: INFO          # DEBUG | INFO | WARNING | ERROR
+  format: "%(asctime)s [%(name)s] %(levelname)s: %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+idempotency:
+  enabled: true
+  manifest_file: ../outputs/.manifest.json

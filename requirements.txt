@@ -1,0 +1,10 @@
+# Direct runtime dependency pins (transitive versions are recorded in uv.lock)
+# For development dependencies, use: pip install -e ".[dev]"
+markitdown[pdf]==0.1.5
+PyYAML==6.0.3
+
+# Optional: Docling engine (includes torch, torchvision, transformers)
+# For CPU-only: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+# Then:        pip install docling==2.86.0
+# For GPU:     pip install docling==2.86.0
+# docling==2.86.0
