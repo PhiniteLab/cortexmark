@@ -19,7 +19,7 @@ A mechanical inventory of what exists. Regenerate with `repo_info.py sync`.
 | `docs/architecture/` | 2 | — | 2 |
 | `docs/getting-started/` | 2 | — | 2 |
 | `docs/guide/` | 3 | — | 3 |
-| `tests/` | — | 18 | 18 |
+| `tests/` | — | 19 | 19 |
 
 ## Modules and Public Symbols
 
@@ -77,9 +77,10 @@ A mechanical inventory of what exists. Regenerate with `repo_info.py sync`.
 | `tests/test_fix_c1b_docs_tree.py` | `test_mkdocs_navigation_targets_exist`, `test_mkdocs_repository_matches_package_metadata_when_configured`, `test_configuration_md_documents_stages_and_dual_engine`, `test_quickstart_documents_controls_and_index_links_to_configuration`, `test_inputs_and_outputs_lists_analyze_and_validate_artifacts`, `test_plugins_doc_states_not_invoked_by_pipeline`, `test_modules_doc_covers_bundle_producing_modules`, `test_modules_doc_separates_orphaned_utilities`, `test_newly_documented_modules_are_actually_importable` | Documentation navigation, package metadata, and runtime surface consistency. |
 | `tests/test_fix_rag_export_chunk_id_uniqueness.py` | `TestChunkFileIndex`, `TestRagIdUniquenessAcrossDocuments`, `TestRagIdUniquenessWithinDocument`, `TestRagIdDeterminism`, `TestRagIdPortability` | Regression tests for C35: rag_export chunk ids must not collide across documents. |
 | `tests/test_fix_tr_corpus.py` | `TestHeaderOnlyTablesKept`, `TestIntrawordSplitRepair`, `TestLetterSpacedRunRepair` | Regression tests for the Turkish-corpus verification findings (2026-07-24). |
+| `tests/test_ocr_dependencies.py` | `test_legacy_python_selects_supported_legacy_ocr`, `test_python313_selects_modern_ocr_and_explicit_onnx_runtime`, `test_unrelated_install_modes_do_not_require_ocr`, `test_declared_python_range_respects_runtime_dependency_support` | OCR extras must select installable engines and their runtime by Python version. |
 | `tests/test_page_ir.py` | `test_scientific_object_page_provenance_defaults`, `test_classify_pages_distinguishes_born_digital_and_scanned`, `test_build_document_ir_extracts_normalized_born_digital_blocks`, `test_build_document_ir_extracts_normalized_rapidocr_blocks`, `test_run_writes_page_ir_and_summary_metrics`, `test_build_document_ir_routes_each_page_of_a_mixed_document` | — |
 | `tests/test_paths.py` | `TestProjectRootDiscovery`, `TestPathSettingsPrecedence`, `TestManifestAndDirectories`, `TestBinaryResolution`, `TestRuntimeEnvPrecedence` | — |
 | `tests/test_pipeline_structure.py` | `DummyFormula`, `TestConfig`, `TestLogging`, `TestMirrorDirectoryTree`, `TestFileHash`, `TestManifest`, `TestConvertManifest`, `TestConvertEngineRobustness`, `TestNormalizeMarkdown`, `TestNormalizeRecoveredText`, `TestFormatBlocks`, `TestReformatAlgorithmSections` … +284 more | Comprehensive tests for the CortexMark. |
 | `tests/test_run_cli.py` | `test_ocr_available_with_installed_rapidocr`, `test_default_config_enables_docling_quality_options`, `test_auto_engine_resolution`, `test_run_born_digital_pdf_writes_bundle_without_ocr`, `test_unknown_first_argument_delegates_to_legacy_pipeline`, `test_scanned_pdf_ocr_has_provenance_marker`, `test_run_batch_skips_corrupt_pdf_and_converts_the_rest` | — |
 
-_76 file(s) inventoried: 20 Markdown, 56 Python._
+_77 file(s) inventoried: 20 Markdown, 57 Python._

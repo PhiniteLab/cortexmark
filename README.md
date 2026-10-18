@@ -6,12 +6,12 @@ CortexMark is a standalone Python CLI that turns your own PDF papers into local 
 
 ## Install from source
 
-Requires Python 3.11 or newer. Clone the repository:
+Requires Python 3.11–3.14; CI currently covers Python 3.11–3.13. Clone the repository:
 
 ```bash
 git clone https://github.com/PhiniteLab/cortexmark.git
 cd cortexmark
-git checkout v0.3.5a1
+git checkout v0.3.5a2
 ```
 
 On Linux or macOS:
@@ -95,6 +95,8 @@ For `paper.pdf`, files are written under `cortexmark-output/paper/`:
 IR, consensus, grounding, and individual analysis/validation steps can fail independently, leaving reports absent while the main conversion succeeds. A failed document may leave partial files. Directory runs continue after document failures and can return exit code zero on partial success: inspect warnings and the `--json` failure list.
 
 Confidence, grounding, formula diagnostics, and QA badges are heuristics. They do not establish semantic fidelity, mathematical correctness, citation accuracy, or complete extraction. Check important passages, equations, tables, code, and references against the PDF. Known issues also affect retrieval IDs and exports; inspect records before building downstream indexes.
+
+OCR can merge spaces, reorder words or lines, and omit recognized text when box arrays are incomplete. See [R30](KNOWN_ISSUES.md). Installing a compatible OCR engine enables processing; it does not guarantee transcription or layout accuracy.
 
 ## Local data and privacy
 

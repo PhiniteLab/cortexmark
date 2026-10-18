@@ -2,6 +2,8 @@
 
 This early preview is published with the unresolved findings below from a previous audit. The IDs, priorities, and affected components are retained for tracking. These are prior reported findings, not new validation results for the publication snapshot; cleanup and repository migration do not establish fixes. All entries remain unresolved at publication until a scoped fix and regression verification explicitly close them.
 
+R30 was additionally reproduced during publication checks and is documented separately below. This preview therefore tracks 30 unresolved issues.
+
 P1, P2, and P3 are the priorities supplied by that audit, in descending order. Line numbers are omitted because source locations may move.
 
 | ID | Priority | Affected components | Previously reported issue |
@@ -35,6 +37,14 @@ P1, P2, and P3 are the priorities supplied by that audit, in descending order. L
 | R27 | P2 | `ocr.py`, `page_ir.py` | Empty-page OCR eligibility diverges across artifacts |
 | R28 | P2 | `diff.py` | Diff counts and unified output omit changes |
 | R29 | P3 | `citation_context.py` | Co-citation counts collapse repeated sentence occurrences |
+
+## R30 — OCR reading order and incomplete geometry
+
+Priority: P2. Components: `ocr.py`, `page_ir.py`.
+
+OCR output is sorted by each box's minimum y-coordinate, then x-coordinate. Small vertical differences between words on the same physical line can scramble the text. A Python 3.13 / RapidOCR 3.10.0 / ONNX Runtime 1.31.0 image check recognized `Independent OCR test 24680` but emitted `24680 OCR Independent test` after this sorting. OCR can also merge spaces. These behaviors are not fixed by the Python-version dependency correction.
+
+The current adapters pair text, boxes, and confidence arrays with `zip`; incomplete arrays can silently omit recognized text, and Markdown/IR may differ when metadata lengths differ. Verify scanned-paper output directly against the PDF. General layout, superscript, multi-column, and right-to-left fidelity are not established by successful installation or passing unit tests.
 
 For classroom work, use Markdown and JSON outputs until the HTML event-attribute injection issue R01 is fixed. Do not use HTML exports for classroom sharing while this issue remains open.
 

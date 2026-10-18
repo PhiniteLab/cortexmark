@@ -36,7 +36,8 @@ def _get_rapidocr() -> Any:
             from rapidocr import RapidOCR  # type: ignore[import-not-found]
         except ImportError:
             raise ImportError(
-                'RapidOCR is required for local OCR. Install it with: pip install "cortexmark[ocr]"'
+                "RapidOCR is required for local OCR. "
+                'From the CortexMark repository, run: python -m pip install ".[ocr]"'
             ) from None
     return RapidOCR()
 

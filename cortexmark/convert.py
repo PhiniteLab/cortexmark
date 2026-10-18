@@ -54,8 +54,8 @@ def docling_available() -> bool:
 def _docling_import_error() -> ImportError:
     return ImportError(
         "The 'docling' package is required for the docling/dual conversion engine.\n"
-        'Install it with:  pip install "cortexmark[docling]"\n'
-        'Or for GPU support: pip install "cortexmark[gpu]"'
+        'From the CortexMark repository, run: python -m pip install ".[docling]"\n'
+        'For the GPU-oriented extra: python -m pip install ".[gpu]"'
     )
 
 
@@ -89,7 +89,10 @@ def _append_rapidocr_text(markdown: str, input_path: Path, cfg: dict[str, Any] |
         return markdown
     if not ocr.ocr_available():
         if mode == "on":
-            log.warning('OCR was requested but RapidOCR is unavailable; install "cortexmark[ocr]"')
+            log.warning(
+                "OCR was requested but RapidOCR is unavailable; "
+                'from the CortexMark repository run: python -m pip install ".[ocr]"'
+            )
         return markdown
 
     try:
@@ -565,7 +568,7 @@ def convert_pdf(
         except ImportError:
             raise ImportError(
                 "The 'docling' package is required for formula recovery.\n"
-                'Install it with:  pip install "cortexmark[docling]"'
+                'From the CortexMark repository, run: python -m pip install ".[docling]"'
             ) from None
 
         undecoded_formulas = [

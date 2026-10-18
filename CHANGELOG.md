@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.5a2 — 2026-10-18
+
+- Select supported OCR distributions by Python version and include the modern ONNX Runtime backend explicitly.
+- Bound the Python requirement to match MarkItDown compatibility; CI covers Python 3.11, 3.12, and 3.13.
+- Coordinate MarkItDown 0.1.8 and Ruff 0.17.0 across dependencies, the lock file, hooks, and CI.
+- Update GitHub Actions while preserving manually requested Pages deployment and hidden site artifacts.
+- Direct optional-engine installation errors to the source checkout.
+- Document the existing OCR spacing, reading-order, and incomplete-geometry limitations as R30.
+
 ## 0.3.5a1 — 2026-10-18
 
 - Prepare a self-contained student repository for converting users' own papers.
