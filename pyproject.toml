@@ -55,7 +55,7 @@ dev = [
     "twine>=5.1",
     "pytest>=9.0",
     "pytest-cov>=6.0",
-    "ruff==0.17.0",
+    "ruff==0.17.2",
     "pyright>=1.1",
     "pre-commit>=4.0",
 ]
