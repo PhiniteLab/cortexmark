@@ -1,6 +1,6 @@
 # Direct runtime dependency pins (transitive versions are recorded in uv.lock)
 # For development dependencies, use: pip install -e ".[dev]"
-markitdown[pdf]==0.1.8
+markitdown[pdf]==0.1.9
 PyYAML==6.0.3
 
 # Optional: Docling engine (includes torch, torchvision, transformers)
